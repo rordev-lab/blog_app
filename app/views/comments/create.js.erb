@@ -1,0 +1,7 @@
+<% if @comment.errors.any? %>
+  $("#comment-form").html("<%= escape_javascript(render :partial =>'comments/form', :locals => { comment: @comment} ) %>");
+<% else %>
+  $('#new_comment').trigger("reset");
+  $("#comments-list").prepend("<%= escape_javascript(render :partial =>'comments/show', :locals => { comment: @comment} ) %>");
+  $("button.close[data-dismiss='alert']").click();
+<% end %>

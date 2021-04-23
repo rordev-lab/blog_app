@@ -1,0 +1,26 @@
+<div class="card my-4">
+  <h5 class="card-header">Leave a Comment:</h5>
+  <div class="card-body">
+    <%= form_for(comment, url: post_comments_path(comment.post), remote: true) do |form| %>
+      <% if comment.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <ul>
+            <% comment.errors.each do |error| %>
+              <li><%= error.options[:message] %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <div class="form-group floating-label-form-group controls">
+        <%= form.label :body %>
+        <%= form.text_area :body, class: "form-control", placeholder: "Write your comment here...." %>
+      </div>
+      <br>
+      <%= form.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

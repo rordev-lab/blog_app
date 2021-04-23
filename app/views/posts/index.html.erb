@@ -1,0 +1,26 @@
+<%= render 'layouts/shared/main_header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <% @posts.each do |post| %>
+        <div class="post-preview">
+          <%= link_to post do %>
+            <h2 class="post-title"><%= post.title%></h2>
+            <h3 class="post-subtitle"><%= post.subtitle %></h3>
+          <%end%>
+          <p class="post-meta">
+            Posted by
+            <%= link_to post.user.email, "#" %>
+            <%= time_ago_in_words post.updated_at %>
+          </p>
+        </div>
+        <hr />
+      <% end %>
+      <!-- Pager-->
+      <% if @posts.any? %>
+        <%= will_paginate @posts, :page_links => false %>
+      <% end %>
+    </div>
+  </div>
+  <hr />
