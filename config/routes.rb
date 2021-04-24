@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  namespace :admin do
+    get 'dashboard', to: 'dashboard#index'
+    resources :posts do
+      resources :comments
+    end
+  end
 end

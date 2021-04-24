@@ -1,0 +1,15 @@
+<% if @comment.errors.any? %>
+  swal({
+    title: "Comment can't be blank!",
+    icon: "error",
+    timer: 1000
+  });
+<% else %>
+  $(".comment[data-comment-id='<%= @comment.id %>']").remove();
+  $("#comments-list").prepend("<%= escape_javascript(render :partial =>'comments/show', :locals => { comment: @comment} ) %>");
+  swal({
+    title: "Comment Updated!",
+    icon: "success",
+    timer: 1000
+  });
+<% end %>

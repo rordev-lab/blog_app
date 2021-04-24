@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Edit Post</h1>
+  <ol class="breadcrumb mb-4">
+    <%= link_to '<i class="fas fa-arrow-left mr-2"></i> Back'.html_safe, admin_posts_path%>
+  </ol>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <%= render 'form', post: @post, url: admin_post_path, method: 'patch' %>
+    </div>
+  </div>
+</div>

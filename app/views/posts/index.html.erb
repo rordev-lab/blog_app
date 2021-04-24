@@ -12,7 +12,8 @@
           <p class="post-meta">
             Posted by
             <%= link_to post.user.email, "#" %>
-            <%= time_ago_in_words post.updated_at %>
+            <%= time_ago_in_words post.created_at %>
+            ago
           </p>
         </div>
         <hr />

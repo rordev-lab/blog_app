@@ -1,0 +1,34 @@
+<%= form_with(model: post, url: url, method: method) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <%= form.label :subtitle %>
+      <%= form.text_field :subtitle, class: "form-control", placeholder: "Subtitle" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="form-group floating-label-form-group controls">
+      <%= form.label :body %>
+      <%= form.text_area :body, class: "form-control", placeholder: "Body" %>
+    </div>
+  </div>
+  <br>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

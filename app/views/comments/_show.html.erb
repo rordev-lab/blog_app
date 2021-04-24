@@ -1,11 +1,23 @@
-<div class="media mb-4">
+<div class="media mb-4 comment" data-comment-id="<%= comment.id %>">
   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
   <div class="media-body post-preview">
-    <%= comment.body %>
+    <div class="comment-text">
+      <%= comment.body %>
+    </div>
     <p class="post-meta">
       Commented by
       <%= link_to comment.user.email, "#" %>
       <%= time_ago_in_words comment.updated_at %>
+      <span class= "comment-actions">
+        <% if policy(comment).edit? %>
+          <%= link_to 'Edit', 'javascript:void(0)', class: 'edit-comment', data: { url: post_comment_path(comment.post, comment) } %>
+        <% end %>
+        <% if policy(comment).destroy? %>
+        |
+          <%= link_to ' Delete', post_comment_path(comment.post, comment), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: 'delete-comment' %>
+        <% end %>
+      </span>
     </p>
   </div>
 </div>
+

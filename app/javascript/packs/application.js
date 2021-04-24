@@ -11,6 +11,8 @@ import "jquery"
 Rails.start()
 ActiveStorage.start()
 
-import ('blog_style/clean-blog.scss');
+import ('blog_style/user/clean-blog.scss');
 
-import ('./custom.js');
+import ('./alert.js');
+import ('./blog.js');
+import ('./comment.js');

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: %[index]
   before_action :set_post, only: %i[create]
   before_action :set_comment, only: %i[show edit update destroy]
 
@@ -8,10 +8,20 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
+  def update
+    authorize @comment
+    @comment.update(comment_params)
+  end
+  
+  def destroy
+    authorize @comment
+    @comment.destroy
+  end
+
   private
 
   def set_comment
-    Comment.find(params)
+    @comment = Comment.find(params[:id])
   end
 
   # Use callbacks to share common setup or constraints between actions.

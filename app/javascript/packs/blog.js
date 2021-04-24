@@ -7,19 +7,7 @@ $("body").on("input propertychange", ".floating-label-form-group", function(e) {
   $(this).removeClass("floating-label-form-group-with-focus");
 });
 
-$(document).on('click', 'button.close[data-dismiss="alert"]', function(){
-  $(this).closest('.alert').slideUp(500, function () {
-    $(this).closest('.alert').hide();
-  });
-});
-
 $( document ).ready(function() {
-  window.setTimeout(function () {
-    $(".alert:not(#error_explanation)").slideUp(1000, function () {
-      $(".alert").hide();
-    });
-  }, 1500);
-  
   // Show the navbar when the page is scrolled up
   var MQL = 992;
 

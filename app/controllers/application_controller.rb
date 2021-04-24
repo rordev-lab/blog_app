@@ -1,7 +1,25 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :info, :error, :warning
   include Pundit
+
+  add_flash_types :info, :error, :warning
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      admin_dashboard_path
+    else
+      root_path
+    end
+  end
+
+  protected
+  def admin_access!
+    redirect_to root_path unless current_user.try(:admin?)
+  end
+
+  def non_admin_access!
+    redirect_to admin_dashboard_path if current_user.try(:admin?)
+  end
 
   private
 

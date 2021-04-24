@@ -6,12 +6,11 @@ class PostPolicy < ApplicationPolicy
     @post = post
   end
 
-
   def update?
     user.admin? || post.user == user
   end
 
-  def show?
+  def destroy?
     update?
   end
 
@@ -24,11 +23,7 @@ class PostPolicy < ApplicationPolicy
     end
 
     def resolve
-      if user
-        user.posts
-      else
-        scope.all
-      end
+      scope.all
     end
   end
 end

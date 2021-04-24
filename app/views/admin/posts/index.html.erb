@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Posts</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">List</li>
+  </ol>
+  <div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table mr-1"></i>
+      Posts
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Post Id</th>
+              <th>Title</th>
+              <th>Subtitle</th>
+              <th>Body</th>
+              <th>Posted By</th>
+              <th>Posted On</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Post Id</th>
+              <th>Title</th>
+              <th>Subtitle</th>
+              <th>Body</th>
+              <th>Posted By</th>
+              <th>Posted On</th>
+              <th>Action</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.id %></td>
+                <td><%= post.title %></td>
+                <td><%= post.subtitle %></td>
+                <td><%= post.body %></td>
+                <td><%= post.user.email %></td>
+                <td><%= time_ago_in_words post.created_at %> ago</td>
+                <td>
+                  <ul class="list-inline m-0" style="display: inline-flex;">
+                    <li class="list-inline-item">
+                      <%= link_to '<i class="fa fa-table"></i>'.html_safe, admin_post_path(post), data: { toggle: "tooltip", placement: "top" }, title: "Show Preview", target: '_blank', class: 'btn btn-primary btn-sm rounded-0' %>
+                    </li>
+                    <li class="list-inline-item">
+                      <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_admin_post_path(post), data: { toggle: "tooltip", placement: "top" }, title: "Edit", class: 'btn btn-success btn-sm rounded-0' %>
+                    </li>
+                    <li class="list-inline-item">
+                      <%= link_to '<i class="fa fa-trash"></i>'.html_safe, admin_post_path(post), data: { toggle: "tooltip", placement: "top" }, title: "Delete", class: 'btn btn-danger btn-sm rounded-0', method: :delete, data: { confirm: "Are you sure?" } %>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% if @posts.any? %>
+        <%= will_paginate @posts, :page_links => true %>
+      <% end %>
+    </div>
+  </div>
+</div>
