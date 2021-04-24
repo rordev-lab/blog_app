@@ -4,8 +4,7 @@ class Comment < ApplicationRecord
 
   validates(
     :body,
-    presence: { message: 
-     "Comment can't be blank" 
-    }  
+    presence: { message:
+     "Comment can't be blank" }
   )
 end

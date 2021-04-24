@@ -6,15 +6,15 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = policy_scope(Post)
-              .includes(:user)
-              .order('posts.created_at DESC')
-              .paginate(page: params[:page], per_page: 10)
+             .includes(:user)
+             .order('posts.created_at DESC')
+             .paginate(page: params[:page], per_page: 10)
   end
 
   # GET /posts/1
   def show
     @commnents = @post
-                .comments.order('comments.created_at DESC')
+                 .comments.order('comments.created_at DESC')
   end
 
   # GET /posts/new

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: %[index]
+  before_action :authenticate_user!, except: %(index)
   before_action :set_post, only: %i[create]
   before_action :set_comment, only: %i[show edit update destroy]
 
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     authorize @comment
     @comment.update(comment_params)
   end
-  
+
   def destroy
     authorize @comment
     @comment.destroy

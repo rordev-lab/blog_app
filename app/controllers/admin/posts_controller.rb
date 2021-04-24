@@ -5,18 +5,18 @@ module Admin
     # GET /posts
     def index
       @posts = policy_scope(Post)
-                .includes(:user)
-                .order('posts.created_at DESC')
-                .paginate(page: params[:page], per_page: 10)
+               .includes(:user)
+               .order('posts.created_at DESC')
+               .paginate(page: params[:page], per_page: 10)
     end
 
     # GET /posts/1
     def show
       @commnents = @post
-                  .comments.order('comments.created_at DESC')
-                  
+                   .comments.order('comments.created_at DESC')
+
       @post_preview = true
-      render "posts/show", layout: "layouts/application"
+      render 'posts/show', layout: 'layouts/application'
     end
 
     # GET /posts/new
