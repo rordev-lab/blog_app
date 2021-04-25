@@ -34,8 +34,9 @@ gem 'faker'
 gem 'haml'
 gem 'pundit'
 gem 'will_paginate'
+gem 'rexml'
 
-gem 'letter_opener' # temprorary for production also
+gem 'letter_opener_web' # temprorary for production also
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,24 +1,50 @@
-# README
+# BLOG APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple demo rails blog app. Uses devise gem for authentication and pundit gem for authorization. It used ckeditor for writing html based blog post.
 
-Things you may want to cover:
+1. It allows user to create blog post.
+2. Blogger can update and delete their posts.
+3. Blogger can add comments on different posts but can oly update, destroy their comment.
 
-* Ruby version
+Blog app consist of an admin panel. Admin can perform CURD operations on any post.
 
-* System dependencies
+<b>Stack</b>:
 
-* Configuration
+* Ruby version: 3.0.0
 
-* Database creation
+* Rails version: 6.1.3
 
-* Database initialization
+* Database : Postgres Sql
 
-* How to run the test suite
+* Heroku URL : https://venuerific-blog-app.herokuapp.com/
 
-* Services (job queues, cache servers, search engines, etc.)
+## Rails Setup
+    git clone https://github.com/rordev-lab/blog_app
+    cd blog_app
+    # edit config/database.yml with the desired database endpoint
+    bundle
+    rails db:create db:migrate db:seed
+    rails server # start server
 
-* Deployment instructions
+Now you can should be able to go to the url endpoints to see the demo page.
 
-* ...
+* http://localhost:3000
+* http://localhost:3000/admin/dashboard # admin dashboard
+* http://localhost:3000/posts # demo CRUD with post
+* http://localhost:3000/admin/posts # demo CRUD with post (Admin)
+
+
+To deploy this Rails app to heroku.
+
+    cd blog_app
+    heroku login (login via heroku cli)
+    heroku create (created heroku app)
+    git push heroku master # deploys to heroku
+    heroku run rails db:migrate
+    heroku run rails db:seed
+
+## Basic logins
+
+    First Blogger login : first_blogger@blogapp.com / password
+    Sec Blogger login   : sec_blogger@blogapp.com / password
+    Admin login         : admin@blogapp.com / password

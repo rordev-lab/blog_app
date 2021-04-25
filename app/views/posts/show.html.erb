@@ -1,22 +1,4 @@
-<header class="masthead" style="background-image: url('/assets/post-bg.jpg')">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-heading">
-          <h1><%= @post.title %></h1>
-          <h2 class="subheading"><%= @post.subtitle %></h2>
-          <span class="meta">
-          Posted by
-          <a href="#!"><%= @post.user.email %></a>
-          <%= time_ago_in_words @post.updated_at %>
-          ago
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<%= render 'layouts/shared/main_header' %>
 <!-- Post Content-->
 <article>
   <div class="container">
