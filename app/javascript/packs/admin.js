@@ -24,9 +24,11 @@ $( document ).ready(function() {
     }
   });
 
-  // Toggle the side navigation
-  $("#sidebarToggle").on("click", function(e) {
-    e.preventDefault();
-    $("body").toggleClass("sb-sidenav-toggled");
-  });
+  CKEDITOR.replace( 'post[body]' );  
+});
+
+// Toggle the side navigation
+$("#sidebarToggle").on("click", function(e) {
+  e.preventDefault();
+  $("body").toggleClass("sb-sidenav-toggled");
 });

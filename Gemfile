@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -32,6 +34,8 @@ gem 'faker'
 gem 'haml'
 gem 'pundit'
 gem 'will_paginate'
+
+gem 'letter_opener' # temprorary for production also
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,6 +1,10 @@
-class Admin::AdminController < ApplicationController
-  layout 'admin'
+# frozen_string_literal: true
 
-  before_action :authenticate_user!
-  before_action :admin_access!
+module Admin
+  class AdminController < ApplicationController
+    layout 'admin'
+
+    before_action :authenticate_user!
+    before_action :admin_access!
+  end
 end

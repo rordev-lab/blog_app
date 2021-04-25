@@ -19,6 +19,7 @@
               <th>Body</th>
               <th>Posted By</th>
               <th>Posted On</th>
+              <th>Last Updated at</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -30,6 +31,7 @@
               <th>Body</th>
               <th>Posted By</th>
               <th>Posted On</th>
+              <th>Last Updated at</th>
               <th>Action</th>
             </tr>
           </tfoot>
@@ -42,6 +44,7 @@
                 <td><%= post.body %></td>
                 <td><%= post.user.email %></td>
                 <td><%= time_ago_in_words post.created_at %> ago</td>
+                <td><%= time_ago_in_words post.updated_at %> ago</td>
                 <td>
                   <ul class="list-inline m-0" style="display: inline-flex;">
                     <li class="list-inline-item">

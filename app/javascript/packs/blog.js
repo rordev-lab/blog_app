@@ -9,6 +9,8 @@ $("body").on("input propertychange", ".floating-label-form-group", function(e) {
 
 $( document ).ready(function() {
   // Show the navbar when the page is scrolled up
+  CKEDITOR.replace( 'post[body]' );
+
   var MQL = 992;
 
   //primary navigation slide-in effect

@@ -1,5 +1,9 @@
 <% if @comment.errors.any? %>
-  $("#comment-form").html("<%= escape_javascript(render :partial =>'comments/form', :locals => { comment: @comment} ) %>");
+  swal({
+    title: "Comment can't be blank!",
+    icon: "error",
+    timer: 1000
+  });
 <% else %>
   $('#new_comment').trigger("reset");
   $("#comments-list").prepend("<%= escape_javascript(render :partial =>'comments/show', :locals => { comment: @comment} ) %>");

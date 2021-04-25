@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Rails.env.development?
   first_blogger =	User.create(email: 'first_blogger@blogapp.com', password: 'password')
   sec_blogger = User.create(email: 'sec_blogger@blogapp.com', password: 'password')
